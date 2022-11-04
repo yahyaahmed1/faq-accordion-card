@@ -1,0 +1,222 @@
+:root {
+  --font-family: "Kumbh Sans", sans-serif;
+  --font-size-body: 12px;
+  --text-very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --text-very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --text-dark-grayish-blue: hsl(240, 6%, 50%);
+  --text-soft-red: hsl(14, 88%, 65%);
+  --bg-color1: hsl(273, 75%, 66%);
+  --bg-color2: hsl(240, 73%, 65%);
+  --divider-color: hsl(240, 5%, 91%);
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  margin: 0;
+  background-image: linear-gradient(var(--bg-color1), var(--bg-color2));
+  user-select: none;
+}
+main {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  justify-items: center;
+  align-items: end;
+  justify-content: center;
+}
+section {
+  background-color: white;
+  width: 900px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  border-radius: 30px;
+  /* overflow: hidden; */
+  padding: 50px;
+}
+.illustrator-side {
+  position: relative;
+  width: 50%;
+  height: 50%;
+}
+.bg-mobile,
+.illustration-mobile {
+  display: none;
+}
+.hidden-img {
+  width: 600px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  bottom: 150px;
+  right: 50px;
+}
+.illustrator-side img {
+  position: absolute;
+}
+img.bg-one {
+  width: 800px;
+  bottom: -50px;
+  right: 215px;
+}
+img.bg-two {
+  width: 450px;
+  bottom: 110px;
+  right: 225px;
+  animation: img-animation 3s infinite;
+}
+@keyframes img-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-3%, 3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.box-img {
+  overflow: visible;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  z-index: 5;
+  bottom: -20px;
+  right: 342px;
+  animation: box-animation 3s infinite;
+}
+@keyframes box-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 5%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+img.bg-three {
+  position: relative;
+  width: 200px;
+  right: 145px;
+  top: 25px;
+}
+.faq-side {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+h1 {
+  font-size: 2.8em;
+  color: var(--text-very-dark-desaturated-blue);
+}
+.questions-wraper {
+  height: 70%;
+  display: block;
+}
+.view-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.2s;
+}
+.view-part:hover {
+  cursor: pointer;
+  color: var(--text-soft-red);
+}
+.arrow {
+  transition: 0.3s;
+}
+.up {
+  rotate: 180deg;
+  transition: 0.3s;
+}
+.according {
+  margin-bottom: 30px;
+}
+.according::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: var(--divider-color);
+  display: block;
+  margin-bottom: 5px;
+  position: relative;
+  top: 20px;
+}
+.bold {
+  font-weight: 700;
+  color: var(--text-very-dark-desaturated-blue);
+}
+p.answer {
+  transition: height 0.4s ease-out;
+  height: 0;
+  visibility: hidden;
+  margin: 0;
+}
+p.answer.show {
+  transition: height 0.4s ease-out;
+  visibility: visible;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: var(--text-soft-red);
+}
+
+@media (max-width: 1024px) {
+  .hidden-img,
+  .box-img {
+    display: none;
+  }
+  .bg-mobile,
+  .illustration-mobile {
+    display: block;
+  }
+  main {
+    align-items: end;
+  }
+  section {
+    text-align: center;
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 25px;
+  }
+  .illustrator-side {
+    position: relative;
+    width: 250px;
+    height: 70px;
+  }
+  img.illustration-mobile {
+    bottom: 15px;
+    animation: box-animation 3s infinite;
+  }
+  img.bg-mobile {
+    width: inherit;
+    top: -25px;
+  }
+  p.answer.show {
+    text-align: left;
+    width: 90%;
+  }
+}
